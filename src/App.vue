@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container my-5">
+    <h3>AGREGAR USUARIOS</h3>
+    <AgregaUsers />
+    <hr class="my-5" />
+    <h3>TABLA DE USUARIOS</h3>
+    <MuestraUsers />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+  addDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
+import firebaseApp from "./firebaseconfig.js";
+import AgregaUsers from "./components/AgregaUsers.vue";
+import MuestraUsers from "./components/MuestraUsers.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    AgregaUsers,
+    MuestraUsers,
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
